@@ -34,9 +34,7 @@ public class TipoResidenteServicesImpl implements ITipoResidenteServices{
 
 	@Override
 	public TipoResidente consultar(Long id) {
-		
-		return null;
-//		return tipoResidenteDao.fin;
+		return tipoResidenteDao.findById(id).get();
 	}
 
 	@Override

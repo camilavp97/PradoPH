@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<title>PRADO P.H</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Tipo Residente</h1>
+		<form class="form-inline" th:action="@{/tiporesidente/}" th:object="${tipoResidente}" method="post">
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="inputPassword2" class="sr-only">Password</label>
+				 <input
+					type="text" class="form-control" id="inputPassword2"
+					placeholder="Nombre Tipo Residente" th:field="*{nombreTipoResidente}"></input>
+					
+					<input
+					type="hidden" class="form-control" id="inputPassword2"
+					placeholder="Nombre Tipo Residente" th:field="*{id}"></input>
+			</div>
+			<button type="submit" class="btn btn-primary mb-2">Agregar</button>
+		</form>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Nombre Tipo Residente</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tipoResidente: ${tiposResidente}">
+					<td th:text="${tipoResidente.nombreTipoResidente}"></td>
+					<td><a class="btn btn-danger"
+						th:href="@{/eliminar/} + ${tipoResidente.id}">Eliminar</a> 
+						<a class="btn btn-warning" th:href="@{/editar/} + ${tipoResidente.id}">Actualizar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace= "layout/footer :: footer"></footer>
+</body>
+</html>
