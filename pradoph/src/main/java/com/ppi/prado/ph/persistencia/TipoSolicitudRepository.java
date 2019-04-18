@@ -2,6 +2,8 @@ package com.ppi.prado.ph.persistencia;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface TipoSolicitudRepository extends CrudRepository<TipoSolicitudRepository, Long>{
+import com.ppi.prado.ph.entidades.TipoSolicitud;
 
+
+public interface TipoSolicitudRepository extends CrudRepository<TipoSolicitud, Long>{
 }
