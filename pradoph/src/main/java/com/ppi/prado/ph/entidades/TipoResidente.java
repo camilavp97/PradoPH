@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 public class TipoResidente {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column
