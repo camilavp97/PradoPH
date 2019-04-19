@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 public class PerfilUsuario {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue (strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
 	@NotEmpty

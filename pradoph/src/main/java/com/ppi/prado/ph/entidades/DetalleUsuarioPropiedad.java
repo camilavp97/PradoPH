@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 public class DetalleUsuarioPropiedad {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue (strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
 	@ManyToOne
