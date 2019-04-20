@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout/head :: header">
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Gestión de usuarios</h1>
+			<form th:action="@{/usuarios/guardar}" th:object="${usuarioEntidad}" method="post">					
+				<div class="form-group">
+					<label for="nombre">Nombre(s)</label>
+					<input type="text" class="form-control" id="nombre" placeholder="Nombre del usuario">
+				</div>
+				<div class="form-group">
+					<label for="apellido">Apellido(s)</label>
+					<input type="text" class="form-control" id="apellido" placeholder="Apellido del usuario">
+				</div>
+				<div class="form-group">
+					<label for="telefono">Teléfono</label>
+					<input type="text" class="form-control" id="telefono" placeholder="Número de teléfono">
+				</div>				
+				<div class="custom-file">
+					<label class="custom-file-label" for="foto">Foto de perfil</label>
+					<input type="file" class="custom-file-input" id="foto">
+				</div>
+				<div class="form-group">
+					<label for="usuario">Usuario</label>
+					<input type="text" class="form-control" id="usuario" placeholder="Usuario">
+				</div>
+				<div class="form-group">
+					<label for="clave">Contraseña</label>
+					<input type="password" class="form-control" id="clave" placeholder="Contraseña">
+				</div>
+				<div class="form-group">
+					<label for="confirmacion">Confirmación contraseña</label>
+					<input type="password" class="form-control" id="confirmacion" placeholder="Confirmación contraseña">
+				</div>																
+				<input type="hidden" class="form-control" th:field="*{id}"></input>
+				<button type="submit" class="btn btn-success mb-2">Guardar</button>
+			</form>
+		</div>
+	</body>
+</html>

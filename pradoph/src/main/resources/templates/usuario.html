@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace= "layout/head :: header">
+		<meta charset="utf-8" />
+</head>
+<body>
+	<div class="container">
+		<a class="btn btn-success" th:href="@{/usuarios/crear}">Crear</a> 
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Nombre(s)</th>
+					<th scope="col">Apellido(s)</th>
+					<th scope="col">Teléfono</th>
+					<th scope="col">Usuario</th>
+					<th scope="col">Perfil</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario: ${usuarios}">
+					<td th:text="${usuario.nombre}"></td>
+					<td th:text="${usuario.apellido}"></td>
+					<td th:text="${usuario.telefono}"></td>
+					<td th:text="${usuario.usuario}"></td>
+					<td th:text="${usuario.perfilUsuario.descripcion}"></td>
+					<td>
+						<a class="btn btn-danger" th:href="@{/usuarios/eliminar/} + ${usuario.id}">Eliminar</a> 
+						<a class="btn btn-primary" th:href="@{/usuarios/editar/} + ${usuario.id}">Actualizar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
