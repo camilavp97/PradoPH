@@ -1,33 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Prado P.H
-  </title>
-
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-
-  <!-- CSS Files -->
-  <link 
-  th:href="@{/lib/now-iu-kit/css/bootstrap.min.css}" rel="stylesheet" />
-  <link 
-  th:href="@{/lib/now-iu-kit/css/now-ui-kit.css?v=1.2.0}" rel="stylesheet" />
-  
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link 
-  th:href="@{/lib/now-iu-kit/demo/demo.css}" rel="stylesheet" />
-</head>
+<meta charset="utf-8"/>
+<head th:replace= "layout/headMenu :: headerMenu"></head>
 
 <body class="index-page sidebar-collapse">
+<div th:replace= "layout/menuPrincipal :: menu"></div>
 
   <div class="wrapper">
       <div class="section section-basic" id="basic-elements">
         <div class="container">
           <div class="space-70"></div>
-          <div id="inputs">
+          <div id="inputs">	
             <h4>Tipo de Residente</h4>
             <div class="row">
               <div class="col-sm-6 col-lg-3">
