@@ -1,51 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-<title>PRADO P.H</title>
+  <meta charset="utf-8" />
+  <title>
+    Prado P.H
+  </title>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+
+  <!-- CSS Files -->
+  <link 
+  th:href="@{/lib/now-iu-kit/css/bootstrap.min.css}" rel="stylesheet" />
+  <link 
+  th:href="@{/lib/now-iu-kit/css/now-ui-kit.css?v=1.2.0}" rel="stylesheet" />
+  
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link 
+  th:href="@{/lib/now-iu-kit/demo/demo.css}" rel="stylesheet" />
 </head>
-<body>
 
-	<div class="container">
-		<h1>Tipo Residente</h1>
-		<form class="form-inline" th:action="@{/tiporesidente/}" th:object="${tipoResidente}" method="post">
-			<div class="form-group mx-sm-3 mb-2">
-				<label for="inputPassword2" class="sr-only">Password</label>
-				 <input
-					type="text" class="form-control" id="inputPassword2"
-					placeholder="Nombre Tipo Residente" th:field="*{nombreTipoResidente}"></input>
-					
-					<input
-					type="hidden" class="form-control" id="inputPassword2"
-					placeholder="Nombre Tipo Residente" th:field="*{id}"></input>
-			</div>
-			<button type="submit" class="btn btn-primary mb-2">Agregar</button>
-		</form>
-	</div>
+<body class="index-page sidebar-collapse">
 
-	<div class="container">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Nombre Tipo Residente</th>
-					<th scope="col">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="tipoResidente: ${tiposResidente}">
-					<td th:text="${tipoResidente.nombreTipoResidente}"></td>
-					<td><a class="btn btn-danger"
-						th:href="@{/eliminar/} + ${tipoResidente.id}">Eliminar</a> 
-						<a class="btn btn-warning" th:href="@{/editar/} + ${tipoResidente.id}">Actualizar</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<footer th:replace= "layout/footer :: footer"></footer>
+  <div class="wrapper">
+      <div class="section section-basic" id="basic-elements">
+        <div class="container">
+          <div class="space-70"></div>
+          <div id="inputs">
+            <h4>Tipo de Residente</h4>
+            <div class="row">
+              <div class="col-sm-6 col-lg-3">
+                    <form class="form-inline" th:action="@{/tiporesidente/}" th:object="${tipoResidente}" method="post">
+                <div class="form-group">
+                  <input type="text" value="" placeholder="Nombre Tipo de Residente:" class="form-control" th:field="*{nombreTipoResidente}" />
+                  <input type="hidden" value="" placeholder="Nombre Tipo de Residente:" class="form-control" th:field="*{id}" />
+                </div>
+                      <button type="submit" class="btn btn-primary mb-2">Agregar</button>
+              </form>
+              </div>
+            </div>
+          </div>
+            </div>
+            </div>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre Tipo Residente</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="tipoResidente: ${tiposResidente}">
+          <td th:text="${tipoResidente.nombreTipoResidente}"></td>
+          <td><a class="btn btn-danger"
+            th:href="@{/eliminar/} + ${tipoResidente.id}">Eliminar</a> 
+            <a class="btn btn-warning" th:href="@{/editar/} + ${tipoResidente.id}">Actualizar</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer th:replace= "layout/footer :: footer"></footer>
+
+  <!--   Core JS Files   -->
+  <script src="lib/now-iu-kit/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="lib/now-iu-kit/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="lib/now-iu-kit/js/core/bootstrap.min.js" type="text/javascript"></script>
+  
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="lib/now-iu-kit/js/plugins/bootstrap-switch.js"></script>
+  
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="lib/now-iu-kit/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="lib/now-iu-kit/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="lib/now-iu-kit/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+  
 </body>
 </html>
