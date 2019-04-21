@@ -18,10 +18,6 @@ public class TipoResidente {
 	@NotEmpty
 	private String nombreTipoResidente;
 
-	public TipoResidente() {
-		super();
-	}
-
 	public Long getId() {
 		return id;
 	}

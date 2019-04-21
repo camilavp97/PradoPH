@@ -1,6 +1,7 @@
 package com.ppi.prado.ph.servicios.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,11 @@ public class TipoResidenteServicesImpl implements ITipoResidenteServices{
 
 	@Override
 	public TipoResidente consultar(Long id) {
-		return tipoResidenteDao.findById(id).get();
+		Optional<TipoResidente> tipoResidenteConsultado = tipoResidenteDao.findById(id);
+		if (tipoResidenteConsultado.isPresent()) {
+			return tipoResidenteConsultado.get();
+		}
+		return null;
 	}
 
 	@Override

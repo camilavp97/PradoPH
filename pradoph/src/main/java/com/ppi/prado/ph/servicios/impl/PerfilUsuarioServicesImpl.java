@@ -1,6 +1,7 @@
 package com.ppi.prado.ph.servicios.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,13 @@ public class PerfilUsuarioServicesImpl implements IPerfilUsuarioServices{
 
 	@Override
 	public PerfilUsuario consultar(Long id) {
-		return perfilUsuarioRepository.findById(id).get();
+		 Optional<PerfilUsuario> perfilUsuarioConsultado = perfilUsuarioRepository.findById(id);
+		 if(perfilUsuarioConsultado.isPresent()) {
+			 return perfilUsuarioConsultado.get(); 
+		 }
+		 return null;
 	}
+	
 
 	@Override
 	public List<PerfilUsuario> listar() {

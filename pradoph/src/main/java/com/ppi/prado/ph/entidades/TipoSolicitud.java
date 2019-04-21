@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class PerfilUsuario {
+public class TipoSolicitud {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	@NotEmpty
 	@Column
-	private String descripcion;
+	@NotEmpty
+	private String nombreSolicitud;
 
 	public Long getId() {
 		return id;
@@ -26,12 +26,12 @@ public class PerfilUsuario {
 		this.id = id;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getNombreSolicitud() {
+		return nombreSolicitud;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setNombreSolicitud(String nombreSolicitud) {
+		this.nombreSolicitud = nombreSolicitud;
 	}
-
+	
 }
