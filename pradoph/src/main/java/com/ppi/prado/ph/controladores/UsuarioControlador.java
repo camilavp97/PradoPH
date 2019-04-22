@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ppi.prado.ph.entidades.PerfilUsuario;
 import com.ppi.prado.ph.entidades.Usuario;
+import com.ppi.prado.ph.servicios.IPerfilUsuarioServices;
 import com.ppi.prado.ph.servicios.IUsuarioServices;
 
 @Controller
@@ -21,9 +22,13 @@ public class UsuarioControlador {
 	@Autowired
 	private IUsuarioServices usuarioServices;
 	
+	@Autowired
+	private IPerfilUsuarioServices perfilesUsuarioServices;
+	
 	@GetMapping("/crear")
 	public String crear(Model modelo) {
-		modelo.addAttribute("usuarioEntidad", new PerfilUsuario());
+		modelo.addAttribute("usuarioEntidad", new Usuario());
+		modelo.addAttribute("perfiles", perfilesUsuarioServices.listar());
 		return "usuarioformulario";
 	}
 	
@@ -42,10 +47,9 @@ public class UsuarioControlador {
 	@GetMapping("/editar/{id}")
 	public String editar (@PathVariable(value ="id") Long id, Model modelo) {
 		Usuario usuarioExistente = usuarioServices.consultar(id);
-		List<Usuario> usuarios = usuarioServices.listar();
-		modelo.addAttribute("usuarios", usuarios);
 		modelo.addAttribute("usuarioEntidad",usuarioExistente);
-		return "usuario";
+		modelo.addAttribute("perfiles", perfilesUsuarioServices.listar());
+		return "usuarioformulario";
 	}
 	
 	@PostMapping("/guardar")

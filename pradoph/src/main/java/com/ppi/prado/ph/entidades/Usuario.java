@@ -34,7 +34,7 @@ public class Usuario {
 
 	@Column
 	@NotEmpty
-	private String usuario;
+	private String nombreUsuario;
 
 	@Column
 	@NotEmpty
@@ -87,13 +87,13 @@ public class Usuario {
 	public void setFotoPerfil(String fotoPerfil) {
 		this.fotoPerfil = fotoPerfil;
 	}
-
-	public String getUsuario() {
-		return usuario;
+	
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 
 	public String getClave() {

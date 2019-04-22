@@ -9,27 +9,33 @@
 			<form th:action="@{/usuarios/guardar}" th:object="${usuarioEntidad}" method="post">					
 				<div class="form-group">
 					<label for="nombre">Nombre(s)</label>
-					<input type="text" class="form-control" id="nombre" placeholder="Nombre del usuario">
+					<input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Nombre del usuario">
 				</div>
 				<div class="form-group">
 					<label for="apellido">Apellido(s)</label>
-					<input type="text" class="form-control" id="apellido" placeholder="Apellido del usuario">
+					<input type="text" class="form-control" id="apellido" th:field="*{apellido}" placeholder="Apellido del usuario">
 				</div>
 				<div class="form-group">
 					<label for="telefono">Teléfono</label>
-					<input type="text" class="form-control" id="telefono" placeholder="Número de teléfono">
+					<input type="text" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Número de teléfono">
 				</div>				
 				<div class="custom-file">
 					<label class="custom-file-label" for="foto">Foto de perfil</label>
 					<input type="file" class="custom-file-input" id="foto">
 				</div>
 				<div class="form-group">
+    				<label for="perfil">Perfil de usuario</label>
+    				<select class="form-control" id="perfil" th:field="*{perfilUsuario.id}">
+				      <option th:each="perfil: ${perfiles}"  th:value="${perfil.id}" th:text ="${perfil.descripcion}"></option>
+    				</select>
+  				</div>
+				<div class="form-group">
 					<label for="usuario">Usuario</label>
-					<input type="text" class="form-control" id="usuario" placeholder="Usuario">
+					<input type="text" class="form-control" id="usuario" th:field="*{nombreUsuario}" placeholder="Usuario">
 				</div>
 				<div class="form-group">
 					<label for="clave">Contraseña</label>
-					<input type="password" class="form-control" id="clave" placeholder="Contraseña">
+					<input type="password" class="form-control" id="clave" th:field="*{clave}" placeholder="Contraseña">
 				</div>
 				<div class="form-group">
 					<label for="confirmacion">Confirmación contraseña</label>
