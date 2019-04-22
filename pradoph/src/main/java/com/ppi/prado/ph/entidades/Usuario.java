@@ -26,6 +26,7 @@ public class Usuario {
 	@Column
 	private String apellido;
 	
+//	@Pattern(regexp = "([0-9])")
 	@Column
 	private String telefono;
 	

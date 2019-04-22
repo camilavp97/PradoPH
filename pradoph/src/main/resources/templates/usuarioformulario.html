@@ -8,37 +8,42 @@
 			<h1>Gestión de usuarios</h1>
 			<form th:action="@{/usuarios/guardar}" th:object="${usuarioEntidad}" method="post">					
 				<div class="form-group">
-					<label for="nombre">Nombre(s)</label>
-					<input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Nombre del usuario">
+					<label for="nombre">Nombre(s) *</label>
+					<input type="text" class="form-control" id="nombre" th:field="*{nombre}"  placeholder="Nombre del usuario">
+					<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger"></small>
 				</div>
 				<div class="form-group">
-					<label for="apellido">Apellido(s)</label>
+					<label for="apellido">Apellido(s) *</label>
 					<input type="text" class="form-control" id="apellido" th:field="*{apellido}" placeholder="Apellido del usuario">
+					<small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="form-text text-danger"></small>
 				</div>
 				<div class="form-group">
 					<label for="telefono">Teléfono</label>
-					<input type="text" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Número de teléfono">
+					<input type="number" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Número de teléfono">
+<!-- 					<small  th:if="${#fields.hasErrors('telefono') && telefono != null}" th:errors="*{telefono}" class="form-text text-danger"></small> -->
 				</div>				
 				<div class="custom-file">
 					<label class="custom-file-label" for="foto">Foto de perfil</label>
 					<input type="file" class="custom-file-input" id="foto">
 				</div>
 				<div class="form-group">
-    				<label for="perfil">Perfil de usuario</label>
+    				<label for="perfil">Perfil de usuario *</label>
     				<select class="form-control" id="perfil" th:field="*{perfilUsuario.id}">
 				      <option th:each="perfil: ${perfiles}"  th:value="${perfil.id}" th:text ="${perfil.descripcion}"></option>
     				</select>
   				</div>
 				<div class="form-group">
-					<label for="usuario">Usuario</label>
+					<label for="usuario">Usuario *</label>
 					<input type="text" class="form-control" id="usuario" th:field="*{nombreUsuario}" placeholder="Usuario">
+					<small th:if="${#fields.hasErrors('nombreUsuario')}" th:errors="*{nombreUsuario}" class="form-text text-danger"> error</small>
 				</div>
 				<div class="form-group">
-					<label for="clave">Contraseña</label>
+					<label for="clave">Contraseña *</label>
 					<input type="password" class="form-control" id="clave" th:field="*{clave}" placeholder="Contraseña">
+					<small th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}" class="form-text text-danger"></small>
 				</div>
 				<div class="form-group">
-					<label for="confirmacion">Confirmación contraseña</label>
+					<label for="confirmacion">Confirmación contraseña *</label>
 					<input type="password" class="form-control" id="confirmacion" placeholder="Confirmación contraseña">
 				</div>																
 				<input type="hidden" class="form-control" th:field="*{id}"></input>

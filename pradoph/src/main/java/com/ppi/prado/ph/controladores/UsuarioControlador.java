@@ -1,16 +1,17 @@
 package com.ppi.prado.ph.controladores;
 
-import java.util.List;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ppi.prado.ph.entidades.PerfilUsuario;
 import com.ppi.prado.ph.entidades.Usuario;
 import com.ppi.prado.ph.servicios.IPerfilUsuarioServices;
 import com.ppi.prado.ph.servicios.IUsuarioServices;
@@ -53,7 +54,11 @@ public class UsuarioControlador {
 	}
 	
 	@PostMapping("/guardar")
-	public String guardar(Usuario usuario) {
+	public String guardar(@Valid @ModelAttribute("usuarioEntidad") Usuario usuario, BindingResult bindingResult,Model modelo) {
+       if (bindingResult.hasErrors()) {
+    	    modelo.addAttribute("usuarioEntidad",usuario);
+            return "usuarioformulario";
+        }		
 		usuarioServices.guardar(usuario);
 		return "redirect:/usuarios/listar";
 	}
