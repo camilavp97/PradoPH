@@ -57,6 +57,7 @@ public class UsuarioControlador {
 	public String guardar(@Valid @ModelAttribute("usuarioEntidad") Usuario usuario, BindingResult bindingResult,Model modelo) {
        if (bindingResult.hasErrors()) {
     	    modelo.addAttribute("usuarioEntidad",usuario);
+    	    modelo.addAttribute("perfiles", perfilesUsuarioServices.listar());
             return "usuarioformulario";
         }		
 		usuarioServices.guardar(usuario);

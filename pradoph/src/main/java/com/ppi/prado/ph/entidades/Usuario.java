@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -15,6 +16,7 @@ public class Usuario {
 	@GeneratedValue (strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
+	@NotNull
 	@ManyToOne
 	private PerfilUsuario perfilUsuario;
 	
