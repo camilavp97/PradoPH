@@ -55,6 +55,15 @@ public class UsuarioControlador {
 	
 	@PostMapping("/guardar")
 	public String guardar(@Valid @ModelAttribute("usuarioEntidad") Usuario usuario, BindingResult bindingResult,Model modelo) {
+		//Agregar manualmente la validación de si el perfil de usuario no fue seleccionado
+ 	   if(usuario.getPerfilUsuario() == null || usuario.getPerfilUsuario().getId() == null ) {
+ 		bindingResult.rejectValue("perfilUsuario","NotEmpty.usuarioEntidad.perfilUsuario");
+ 	   }
+ 	   
+ 	  if (!bindingResult.hasErrors() && !usuario.getClave().equals(usuario.getConfirmacionClave())) {
+ 		 bindingResult.rejectValue("confirmacionClave","NotEquals.usuarioEntidad.confirmacionClave");
+      }
+ 	   
        if (bindingResult.hasErrors()) {
     	    modelo.addAttribute("usuarioEntidad",usuario);
     	    modelo.addAttribute("perfiles", perfilesUsuarioServices.listar());
@@ -63,4 +72,5 @@ public class UsuarioControlador {
 		usuarioServices.guardar(usuario);
 		return "redirect:/usuarios/listar";
 	}
+	
 }

@@ -6,8 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Usuario {
@@ -22,14 +24,17 @@ public class Usuario {
 	
 	@NotEmpty
 	@Column
+	@Size(max = 30)
 	private String nombre;
 	
 	@NotEmpty
 	@Column
+	@Size(max = 30)
 	private String apellido;
 	
 //	@Pattern(regexp = "([0-9])")
 	@Column
+	@Size(max = 10)
 	private String telefono;
 	
 	@Column
@@ -37,11 +42,19 @@ public class Usuario {
 
 	@Column
 	@NotEmpty
+	@Size(max = 8)
 	private String nombreUsuario;
 
 	@Column
 	@NotEmpty
+	@Size (max = 10)
 	private String clave;
+	
+	@Column
+	@NotEmpty
+	@Size (max = 10)
+	@Transient
+	private String confirmacionClave;
 
 	public Long getId() {
 		return id;
@@ -106,5 +119,13 @@ public class Usuario {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	
+
+	public String getConfirmacionClave() {
+		return confirmacionClave;
+	}
+
+	public void setConfirmacionClave(String confirmacionClave) {
+		this.confirmacionClave = confirmacionClave;
+	}
+
 }
