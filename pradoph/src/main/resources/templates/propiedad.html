@@ -13,7 +13,12 @@
 					</ul>
 				</div>					
 			<div class="form-group mx-sm-3 mb-2">
-				<input type="text" class="form-control" placeholder="Nombre perfil usuario" th:field="*{descripcion}"></input>
+				<input type="text" class="form-control" placeholder="Nombre Propiedad" th:field="*{nombrePropiedad}"></input>
+				<input type="text" class="form-control" placeholder="NIT" th:field="*{nit}"></input>
+				<input type="file" class="custom-file-input" id="foto"></input>
+				<input type="text" class="form-control"	placeholder="Teléfono" th:field="*{telefono}"></input>
+				<input type="text" class="form-control"	placeholder="Dirección" th:field="*{direccion}"></input>
+				
 				<input type="hidden" class="form-control" th:field="*{id}"></input>
 			</div>
 			<button type="submit" class="btn btn-success mb-2">Guardar</button>
@@ -24,16 +29,22 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Nombre Perfil Usuario</th>
+					<th scope="col">Nombre Propiedad</th>
+					<th scope="col">NIT</th>
+					<th scope="col">Teléfono</th>
+					<th scope="col">Dirección</th>
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="perfilUsuario: ${perfilesUsuario}">
-					<td th:text="${perfilUsuario.descripcion}"></td>
+				<tr th:each="propiedad: ${propiedades}">
+					<td th:text="${propiedad.nombrePropiedad}"></td>
+					<td th:text="${propiedad.nit}"></td>
+					<td th:text="${propiedad.telefono}"></td>
+					<td th:text="${propiedad.direccion}"></td>
 					<td>
-						<a class="btn btn-danger" th:href="@{/perfiles-usuario/eliminar/} + ${perfilUsuario.id}">Eliminar</a> 
-						<a class="btn btn-primary" th:href="@{/perfiles-usuario/editar/} + ${perfilUsuario.id}">Actualizar</a>
+						<a class="btn btn-danger" th:href="@{/propiedades/eliminar/} + ${propiedad.id}">Eliminar</a> 
+						<a class="btn btn-primary" th:href="@{/propiedades/editar/} + ${propiedad.id}">Actualizar</a>
 					</td>
 				</tr>
 			</tbody>

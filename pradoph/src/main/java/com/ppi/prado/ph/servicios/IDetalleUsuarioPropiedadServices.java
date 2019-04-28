@@ -10,5 +10,6 @@ public interface IDetalleUsuarioPropiedadServices {
 	void eliminar(Long id);
 	DetalleUsuarioPropiedad consultar(Long id);
 	List<DetalleUsuarioPropiedad> listar();
+	boolean existeDetallePorUsuarioYPropiedad(Long idUsuario,Long idPropiedad);
 
 }
