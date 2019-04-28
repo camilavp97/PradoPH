@@ -15,7 +15,7 @@
 				</div>					
 				<div class="form-group">
 					<label for="nombre">Nombre(s) *</label>
-					<input type="text" class="form-control" id="nombre" th:field="*{nombre}"  placeholder="Nombre del usuario">
+					<input type="text" class="form-control" id="nombre" th:field="*{nombre}"  placeholder="Nombre del usuario" th:errorclass="form-control-danger">
 					<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger"></small>
 				</div>
 				<div class="form-group">
@@ -52,7 +52,8 @@
 				</div>
 				<div class="form-group">
 					<label for="confirmacion">Confirmación contraseña *</label>
-					<input type="password" class="form-control" id="confirmacion" placeholder="Confirmación contraseña">
+					<input type="password" class="form-control" id="confirmacion" th:field="*{confirmacionClave}" placeholder="Confirmación contraseña">
+					<small th:if="${#fields.hasErrors('confirmacionClave')}" th:errors="*{confirmacionClave}" class="form-text text-danger"></small>
 				</div>																
 				<input type="hidden" class="form-control" th:field="*{id}"></input>
 				<button type="submit" class="btn btn-success mb-2">Guardar</button>
