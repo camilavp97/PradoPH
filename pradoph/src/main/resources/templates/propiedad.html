@@ -3,10 +3,10 @@
 <head th:replace= "layout/head :: header"></head>
 <body>
 	<div class="container">
-		<h1>Gestión de perfiles de usuario</h1>
-		<form class="form-inline" th:action="@{/perfiles-usuario/guardar}"
-			th:object="${perfilUsuarioEntidad}" method="post">
-				<div th:object="${perfilUsuarioEntidad}" th:remove="tag">
+		<h1>Gestión de Propiedades</h1>
+		<form class="form-inline" th:action="@{/propiedades/guardar}"
+			th:object="${propiedadEntidad}" method="post">
+				<div th:object="${propiedadEntidad}" th:remove="tag">
 					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 						role="alert">
 						<li th:each="error : ${#fields.errors('*')}" th:text="${error}"></li>

@@ -3,17 +3,17 @@
 <head th:replace= "layout/head :: header"></head>
 <body>
 	<div class="container">
-		<h1>Gestión de perfiles de usuario</h1>
-		<form class="form-inline" th:action="@{/perfiles-usuario/guardar}"
-			th:object="${perfilUsuarioEntidad}" method="post">
-				<div th:object="${perfilUsuarioEntidad}" th:remove="tag">
+		<h1>Gestión de Estados de solicitud</h1>
+		<form class="form-inline" th:action="@{/estados-solicitud/guardar}"
+			th:object="${estadoSolicitudEntidad}" method="post">
+				<div th:object=${estadoSolicitudEntidad} th:remove="tag">
 					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 						role="alert">
 						<li th:each="error : ${#fields.errors('*')}" th:text="${error}"></li>
 					</ul>
 				</div>					
 			<div class="form-group mx-sm-3 mb-2">
-				<input type="text" class="form-control" placeholder="Nombre perfil usuario" th:field="*{descripcion}"></input>
+				<input type="text" class="form-control" placeholder="Nombre Estado solicitud" th:field="*{nombreEstado}"></input>
 				<input type="hidden" class="form-control" th:field="*{id}"></input>
 			</div>
 			<button type="submit" class="btn btn-success mb-2">Guardar</button>
@@ -24,16 +24,16 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Nombre Perfil Usuario</th>
+					<th scope="col">Nombre Estados de solicitud</th>
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="perfilUsuario: ${perfilesUsuario}">
-					<td th:text="${perfilUsuario.descripcion}"></td>
+				<tr th:each="estadoSolicitud : ${estadosSolicitud}">
+					<td th:text="${estadoSolicitud.nombreEstado}"></td>
 					<td>
-						<a class="btn btn-danger" th:href="@{/perfiles-usuario/eliminar/} + ${perfilUsuario.id}">Eliminar</a> 
-						<a class="btn btn-primary" th:href="@{/perfiles-usuario/editar/} + ${perfilUsuario.id}">Actualizar</a>
+						<a class="btn btn-danger" th:href="@{/estados-solicitud/eliminar/} + ${estadoSolicitud.id}">Eliminar</a> 
+						<a class="btn btn-primary" th:href="@{/estados-solicitud/editar/} + ${estadoSolicitud.id}">Actualizar</a>
 					</td>
 				</tr>
 			</tbody>
