@@ -43,7 +43,7 @@ public class PropiedadControlador {
 		List<Propiedad> propiedades = propiedadServices.listar();
 		modelo.addAttribute("propiedades", propiedades);
 		modelo.addAttribute("propiedadEntidad",propiedadExistente);
-		return "propieda";
+		return "propiedad";
 	}
 	
 	@PostMapping("/guardar")

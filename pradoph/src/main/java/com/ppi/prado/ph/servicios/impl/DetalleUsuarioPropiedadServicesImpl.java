@@ -41,5 +41,10 @@ public class DetalleUsuarioPropiedadServicesImpl implements IDetalleUsuarioPropi
 	public List<DetalleUsuarioPropiedad> listar() {
 		return (List<DetalleUsuarioPropiedad>) detalleUsuarioPropiedadRepository.findAll();
 	}
+	
+	@Override
+	public boolean existeDetallePorUsuarioYPropiedad(Long idUsuario, Long idPropiedad) {
+		return detalleUsuarioPropiedadRepository.buscarDetallePorUsurioYPropiedad(idUsuario, idPropiedad) != null;
+	}
 
 }

@@ -40,5 +40,10 @@ public class UsuarioServicesImpl implements IUsuarioServices {
 	public List<Usuario> listar() {
 		return (List<Usuario>) usuarioRepository.findAll();
 	}
+
+	@Override
+	public Usuario consultarUsuarioPorNombreUsuarioYClave(String nombre, String clave) {
+		return usuarioRepository.buscarUsurioPorNombreUsuarioYClave(nombre, clave);
+	}
 	
 }

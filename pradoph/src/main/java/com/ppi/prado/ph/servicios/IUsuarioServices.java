@@ -9,4 +9,5 @@ public interface IUsuarioServices {
 	void eliminar(Long id);
 	Usuario consultar(Long id);
 	List<Usuario> listar();
+	Usuario consultarUsuarioPorNombreUsuarioYClave(String nombre,String clave);
 }
