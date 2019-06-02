@@ -7,3 +7,4 @@ import com.ppi.prado.ph.entidades.EstadoReserva;
 public interface EstadoReservaRepository extends CrudRepository<EstadoReserva, Long> {
 
 }
+ 
